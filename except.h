@@ -15,12 +15,13 @@ struct Except_Frame {
   jmp_buf env;
   char const *file;
   int line;
-  T const *exception;
+  const T *exception;
 };
 
 enum { Except_entered = 0, Except_raised, Except_handled, Except_finalized };
 
 extern Except_Frame *Except_stack;
+extern const Except_T Assert_Failed;
 
 void Except_raise(T const *e, char const *file, int line);
 
